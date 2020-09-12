@@ -75,5 +75,13 @@
     "prefix": "mei",
     "body": ["", "const ${1:embed} = new MessageEmbed();"],
     "description": "New MessageEmbed() object"
-  }
+  },
+  "Message Author Username": {
+    "prefix": "mau",
+    "body": "${1:msg}.author.username"
+  },
+  "Message Author Id": {
+    "prefix": "maid",
+    "body": "${1:msg}.author.id"
+  },
 }
