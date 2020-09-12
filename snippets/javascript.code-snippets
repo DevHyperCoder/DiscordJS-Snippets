@@ -1,0 +1,79 @@
+{
+  "Boilerplate for Discord JS Bot": {
+    "scope": "typescript",
+    "prefix": "!discord",
+    "body": [
+      "import { Client } from \"discord.js\";",
+      "",
+      "// Get the prefix",
+      "const prefix = process.env.PREFIX;",
+      "",
+      "// Create a new discord client",
+      "const client = new Client();",
+      "",
+      "// ready event",
+      "client.on('ready', () => {",
+      "   console.log(`I am online. I am ${client.user.tag}`)",
+      "});",
+      "",
+      "// Runs on every single message",
+      "client.on('message', async msg => {",
+      "    // Check if the author is the bot",
+      "    if (msg.author.bot) return;",
+
+      "    // Check if the msg starts with the prefix",
+      "    if (!msg.content.startsWith(prefix)) return;",
+
+      "    // Split args and commands",
+      "    const args = msg.content.slice(prefix.length).trim().split(/ +/g);",
+      "    const command = args.shift().toLowerCase();",
+      "",
+      "    // Switch based on command",
+      "    switch (command) {",
+      "        case 'bank':",
+      "            // TODO Function to handle this command",
+      "            // bank(msg,args);",
+      "            break;",
+      "        case 'wallet':",
+      "            // TODO Function to handle this command",
+      "            // wallet(msg,args);",
+      "            break;",
+      "        default:",
+      "            await msg.reply('Please use a valid command')",
+      "    }",
+      "});",
+      "",
+      "// Log in with the API KEY",
+      "client.login(process.env.DISCORD_KEY);"
+    ],
+    "description": "Boiler plate code to start a discord bot"
+  },
+  "Message reply": {
+    "prefix": "mr",
+    "body": ["await msg.reply(`${1:message}`);"],
+    "description": "msg.reply()"
+  },
+  "Message Send": {
+    "prefix": "ms",
+    "body": "await msg.channel.send(`${1:message}`);",
+    "description": "Sends a message"
+  },
+  "Message Embed": {
+    "prefix": "me",
+    "body": [
+      "",
+      "const ${1:embed} = new MessageEmbed();",
+      "${1:embed}.setTitle(`${2:title}`);",
+      "${1:embed}.setDescription(`${3:description}`);",
+      "${1:embed}.addFields({name:'${4:foo}',value:'${5:bar}'},{name:'${6:cat}',value:'${7:dog}'});",
+      "",
+      "msg.channel.send(${1:embed});"
+    ],
+    "description": "Fully featured MessageEmbed() object"
+  },
+  "Message Embed init": {
+    "prefix": "mei",
+    "body": ["", "const ${1:embed} = new MessageEmbed();"],
+    "description": "New MessageEmbed() object"
+  }
+}
